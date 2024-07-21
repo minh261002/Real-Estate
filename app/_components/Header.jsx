@@ -1,16 +1,17 @@
 "use client"
 
 import { Button } from '@/components/ui/button'
+import { UserButton, useUser } from '@clerk/nextjs'
 import { Plus } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
 
 const Header = () => {
     const path = usePathname();
-    useEffect(() => {
+    const { user, isSignedIn } = useUser();
 
-    }, [path]);
     return (
         <div className='p-6 px-10 flex justify-between shadow-sm fixed top-0 w-full z-10 bg-white'>
             <div className='flex gap-10 items-center'>
@@ -28,8 +29,12 @@ const Header = () => {
                     <Plus className='w-5 h-5' />
                     Post Your Ad
                 </Button>
-
-                <Button variant="outline">Login</Button>
+                {
+                    isSignedIn ? <UserButton /> :
+                        <Link href='/sign-in'>
+                            <Button variant="outline">Login</Button>
+                        </Link>
+                }
             </div>
         </div>
     )

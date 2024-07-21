@@ -3,7 +3,7 @@ import Header from './_components/Header'
 
 const Provider = ({ children }) => {
     return (
-        <div>
+        <div className='mt-26'>
             <Header />
             {children}
         </div>
