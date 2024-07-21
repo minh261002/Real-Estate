@@ -3,10 +3,14 @@ import Header from './_components/Header'
 
 const Provider = ({ children }) => {
     return (
-        <div className='mt-26'>
-            <Header />
-            {children}
-        </div>
+        <>
+            <div className='mt-32'>
+                <Header />
+
+                {children}
+            </div>
+        </>
+
     )
 }
 

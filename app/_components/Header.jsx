@@ -25,14 +25,18 @@ const Header = () => {
             </div>
 
             <div className='flex gap-2'>
-                <Button className="flex gap-2">
-                    <Plus className='w-5 h-5' />
-                    Post Your Ad
-                </Button>
+                <Link href='/add-new-listing'>
+                    <Button className="flex gap-2">
+                        <Plus className='w-5 h-5' />
+                        Post Your Ad
+                    </Button>
+                </Link>
                 {
                     isSignedIn ? <UserButton /> :
                         <Button variant="outline">
-                            <SignInButton mode='modal' />
+                            <Link href='/sign-in'>
+                                Sign In
+                            </Link>
                         </Button>
                 }
             </div>
