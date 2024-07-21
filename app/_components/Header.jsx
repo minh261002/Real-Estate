@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from '@/components/ui/button'
-import { UserButton, useUser } from '@clerk/nextjs'
+import { SignInButton, UserButton, useUser } from '@clerk/nextjs'
 import { Plus } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,9 +31,9 @@ const Header = () => {
                 </Button>
                 {
                     isSignedIn ? <UserButton /> :
-                        <Link href='/sign-in'>
-                            <Button variant="outline">Login</Button>
-                        </Link>
+                        <Button variant="outline">
+                            <SignInButton mode='modal' />
+                        </Button>
                 }
             </div>
         </div>
